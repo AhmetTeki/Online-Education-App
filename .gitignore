@@ -1,0 +1,57 @@
+# Visual Studio, Rider ve VS Code dosyaları
+.vscode/
+*.code-workspace
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+
+# Dotnet Build ve Publish Çıktıları
+bin/
+obj/
+out/
+debug/
+release/
+publish/
+
+# .NET Paketleri
+*.nupkg
+*.snupkg
+.nuget/
+
+# AppSettings - Ortam Değişkenleri
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+appsettings.local.json
+secrets.json
+
+# Entity Framework Core
+Migrations/
+*.mdf
+*.ldf
+
+# Log ve Cache Dosyaları
+*.log
+logs/
+*.cache
+*.lock.json
+*.db
+
+# Docker, Kubernetes ve Container ile İlgili Dosyalar
+.dockerignore
+docker-compose.override.yml
+docker-compose.override.yml
+**/Dockerfile
+*.container.metadata
+
+# Son Kullanıcı ve Çalışma Ortamı Dosyaları
+node_modules/
+npm-debug.log
+dist/
+.env
+
+# JetBrains Rider ve Resharper
+*.DotSettings.user
