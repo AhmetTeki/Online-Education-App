@@ -27,6 +27,7 @@ appsettings.Production.json
 appsettings.Staging.json
 appsettings.local.json
 secrets.json
+appsettings.json
 
 # Entity Framework Core
 Migrations/
