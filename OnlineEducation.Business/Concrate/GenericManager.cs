@@ -53,7 +53,7 @@ namespace OnlineEducation.Business.Concrate
 
         public void TUpdate(T entity)
         {
-            _repository.Update();
+            _repository.Update(entity);
         }
     }
 }
