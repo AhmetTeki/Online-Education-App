@@ -5,10 +5,11 @@ namespace OnlineEducation.WebUI.Areas.Admin.Controllers
 {
     [Route("[area]/[controller]/[action]/{id?}")]
     [Area("Admin")]
-    public class AboutController : Controller
+    public class AboutController(HttpClient _client) : Controller
     {
         public IActionResult Index()
         {
+            //var values=_client.GetFromJsonAsync<>
             return View();
         }
     }
