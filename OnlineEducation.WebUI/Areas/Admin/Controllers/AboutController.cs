@@ -16,5 +16,32 @@ namespace OnlineEducation.WebUI.Areas.Admin.Controllers
             var values = await _client.GetFromJsonAsync<List<ResultAboutDto>>("abouts");
             return View(values);
         }
+        public async Task<IActionResult> DeleteAbout(int id)
+        {
+            await _client.DeleteAsync($"abouts/{id}");
+            return RedirectToAction(nameof(Index));
+        }
+        [HttpGet]
+        public IActionResult CreateAbout()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateAbout(CreateAboutDto dto)
+        {
+            await _client.PostAsJsonAsync("abouts", dto);
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> UpdateAbout(int id)
+        {
+            var values =await _client.GetFromJsonAsync<UpdateAboutDto>($"abouts/{id}");
+            return View(values);
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateAbout(UpdateAboutDto dto)
+        {
+            await _client.PutAsJsonAsync("abouts", dto);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

@@ -32,9 +32,9 @@
             <td>@item.Item3</td>
             <td>@item.Item4</td>
             <td>
-                <a  asp-area="Admin" asp-controller="About" asp-action="UpdateAbout" class="btn btn-outline-primary">Güncelle</a>
+                <a  asp-area="Admin" asp-controller="About" asp-route-id="@item.AboutId" asp-action="UpdateAbout"  class="btn btn-outline-primary">Güncelle</a>
              </td>
-            <td><a  asp-area="Admin" asp-controller="About" asp-action="DeleteAbout" class="btn btn-outline-primary">Sil</a> </td>
+            <td><a asp-area="Admin" asp-controller="About" asp-route-id="@item.AboutId" asp-action="DeleteAbout" class="btn btn-outline-primary">Sil</a> </td>
         </tr>
     }
 </table><a  asp-area="Admin" asp-controller="About" asp-action="CreateAbout" class="btn btn-outline-info mt-3">Ekle</a>
