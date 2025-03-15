@@ -1,0 +1,25 @@
+﻿using OnlineEducation.Business.Abstract;
+using OnlineEducation.DataAccess.Abstract;
+using OnlineEducation.Entity.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OnlineEducation.Business.Concrate
+{
+    public class BlogManager : GenericManager<Blog>, IBlogService
+    {
+        private readonly IBlogRepository _blogRepository;
+        public BlogManager(IRepository<Blog> _repository, IBlogRepository blogRepository) : base(_repository)
+        {
+            _blogRepository = blogRepository;
+        }
+
+        public  List<Blog> TGetBlogWithCategories()
+        {
+            return _blogRepository.GetBlogWithCategories();
+        }
+    }
+}

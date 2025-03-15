@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using OnlineEducation.Business.Abstract;
 using OnlineEducation.Business.Concrate;
 using OnlineEducation.DataAccess.Abstract;
+using OnlineEducation.DataAccess.Concrate;
 using OnlineEducation.DataAccess.Context;
 using OnlineEducation.DataAccess.Repositories;
 using System.Reflection;
@@ -15,6 +16,9 @@ builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericManager<>));
+
+builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+builder.Services.AddScoped<IBlogService, BlogManager>();
 
 builder.Services.AddDbContext<OnlineEducationContext>(options =>
 {

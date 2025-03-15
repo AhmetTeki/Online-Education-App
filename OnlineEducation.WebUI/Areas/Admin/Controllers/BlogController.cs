@@ -14,7 +14,7 @@ namespace OnlineEducation.WebUI.Areas.Admin.Controllers
         private readonly HttpClient _client = HttpClientInstance.CreateClient();
         public async Task CategoryDropdown()
         {
-            var categoryList = await _client.GetFromJsonAsync<List<ResultBlogCategoryDto>>("categories");
+            var categoryList = await _client.GetFromJsonAsync<List<ResultBlogCategoryDto>>("blogCategories");
 
             List<SelectListItem> categories = (from x in categoryList
                                                select new SelectListItem
@@ -44,18 +44,20 @@ namespace OnlineEducation.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateBlog(CreateBlogDto dto)
         {
-            await CategoryDropdown();
+            
             await _client.PostAsJsonAsync("blogs", dto);
             return RedirectToAction(nameof(Index));
         }
         public async Task<IActionResult> UpdateBlog(int id)
         {
+            await CategoryDropdown();
             var values = await _client.GetFromJsonAsync<UpdateBlogDto>($"blogs/{id}");
             return View(values);
         }
         [HttpPost]
         public async Task<IActionResult> UpdateBlog(UpdateBlogDto dto)
         {
+            
             await _client.PutAsJsonAsync("blogs", dto);
             return RedirectToAction(nameof(Index));
         }
