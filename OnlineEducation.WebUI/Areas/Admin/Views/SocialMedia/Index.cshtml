@@ -1,0 +1,35 @@
+﻿@model List<ResultSocialMediaDto>
+@{
+    ViewData["Title"] = "Sosyal Medya Hesapları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@{
+    int count = 0;
+}
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Sosyal Medya</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <th>@count</th>
+            <td><i class="@item.Icon fa-2x"></i>  <a href="@item.Url" target="_blank">  @item.Title</a></td>
+            <td>
+                <a asp-action="DeleteSocialMedia" asp-controller="SocialMedia" asp-area="Admin" asp-route-id="@item.SocialMediaId" class="btn btn-outline-danger">Sil</a>
+                <a asp-action="UpdateSocialMedia" asp-controller="SocialMedia" asp-area="Admin" asp-route-id="@item.SocialMediaId" class="btn btn-outline-info">Güncelle</a>
+
+
+            </td>
+        </tr>
+    }
+</table>
+
+<br />
+<a asp-action="CreateSocialMedia" asp-controller="SocialMedia" asp-area="Admin" class="btn btn-outline-primary">Yeni SocialMedia Ekle</a>
