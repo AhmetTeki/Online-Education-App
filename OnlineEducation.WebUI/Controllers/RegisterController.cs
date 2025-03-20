@@ -14,7 +14,7 @@ namespace OnlineEducation.WebUI.Controllers
         public async Task<IActionResult> Signup(UserRegisterDto dto)
         {
             var result = await _userService.CreateUserAsync(dto);
-            if (!result.Succeeded)
+            if (!result.Succeeded || !ModelState.IsValid)
             {
                 foreach (var item in result.Errors)
                 {
