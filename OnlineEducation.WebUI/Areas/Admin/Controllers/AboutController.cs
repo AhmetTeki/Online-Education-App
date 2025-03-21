@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineEducation.WebUI.Areas.Admin.Controllers
 {
+    [Authorize(Roles ="Admin")]
     [Route("[area]/[controller]/[action]/{id?}")]
     [Area("Admin")]
     public class AboutController : Controller
