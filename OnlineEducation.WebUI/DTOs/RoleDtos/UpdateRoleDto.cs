@@ -1,6 +1,6 @@
 ﻿namespace OnlineEducation.WebUI.DTOs.RoleDtos
 {
-    public class ResultRoleDto
+    public class UpdateRoleDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

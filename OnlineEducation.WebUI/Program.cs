@@ -1,13 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using OnlineEducation.DataAccess.Context;
 using OnlineEducation.Entity.Entities;
+using OnlineEducation.WebUI.Services.RoleServices;
 using OnlineEducation.WebUI.Services.UserServices;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IRoleService, RoleService>();
 
 builder.Services.AddDbContext<OnlineEducationContext>(options =>
 {
