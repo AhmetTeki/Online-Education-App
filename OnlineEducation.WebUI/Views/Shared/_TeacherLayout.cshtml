@@ -1,6 +1,4 @@
-﻿
-
-@{
+﻿@{
     Layout = null;
 }
 
@@ -53,7 +51,7 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="/Admin/About/Index">
+                    <a class="navbar-brand" href="/Teacher/Dashboard/Index">
                         <!-- Logo icon -->
                         <b class="logo-icon p-l-10">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -234,20 +232,12 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="About" asp-area="Admin" asp-action="Index" aria-expanded="false"><i class="mdi mdi-format-list-bulleted"></i><span class="hide-menu">Hakkımda</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="Banner" asp-area="Admin" asp-action="Index" aria-expanded="false"><i class="mdi mdi-folder-image"></i><span class="hide-menu">Banner</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="BlogCategory" asp-area="Admin" asp-action="Index" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Blog Kategorileri</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="Blog" asp-area="Admin" asp-action="Index" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Bloglar</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="Contact" asp-area="Admin" asp-action="Index" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">İletişim</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="CourseCategory" asp-area="Admin" asp-action="Index" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Kurs Kategrileri</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="Course" asp-area="Admin" asp-action="Index" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Kurslar</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="Message" asp-area="Admin" asp-action="Index" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Gelen Mesajlar</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="SocialMedia" asp-area="Admin" asp-action="Index" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Sosyal Medya</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="Subscriber" asp-area="Admin" asp-action="Index" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Aboneler</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="Testimonial" asp-area="Admin" asp-action="Index" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Referanslar</span></a></li>
-                        
-                        
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/Teacher/Dashboard/Index" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="MyProfile" asp-area="Teacher" asp-action="Index" aria-expanded="false"><i class="mdi mdi-format-list-bulleted"></i><span class="hide-menu">Profil Bilgileri</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="MyBlog" asp-area="Teacher" asp-action="Index" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Bloglarım</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="MyCourse" asp-area="Teacher" asp-action="Index" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Kurslarım</span></a></li>
+
+
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
