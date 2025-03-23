@@ -1,0 +1,12 @@
+﻿@using OnlineEducation.WebUI.DTOs.ContactDtos
+@model List<ResultContactDto>
+<div class="header-info-left">
+    @foreach(var item in Model)
+    {
+        <ul>
+            <li>@item.Email</li>
+            <li>@item.Phone</li>
+        </ul>
+    }
+  
+</div>
