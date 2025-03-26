@@ -13,6 +13,7 @@ namespace OnlineEducation.WebUI.Services.UserServices
         Task<bool> CreateRoleAsync(UserRoleDto userRoleDto);
         Task<bool> AssignRoleAsync(List<AssignRoleDto> assignRoleDto);
         Task<List<AppUser>> GetAllUsersAsync();
+        Task<List<AppUser>> GetAllTeacher();
         Task<AppUser> GetAllUsersByIdAsync(int id);
     }
 }

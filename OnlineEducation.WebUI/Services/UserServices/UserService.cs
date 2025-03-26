@@ -41,6 +41,13 @@ namespace OnlineEducation.WebUI.Services.UserServices
             
         }
 
+        public async Task<List<AppUser>> GetAllTeacher()
+        {
+            var teacherList = await _userManager.GetUsersInRoleAsync("Teacher");
+            return teacherList.ToList();
+            
+        }
+
         public async Task<List<AppUser>> GetAllUsersAsync()
         {
             return await _userManager.Users.ToListAsync();

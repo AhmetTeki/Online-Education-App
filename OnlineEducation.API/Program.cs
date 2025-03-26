@@ -6,6 +6,7 @@ using OnlineEducation.DataAccess.Abstract;
 using OnlineEducation.DataAccess.Concrate;
 using OnlineEducation.DataAccess.Context;
 using OnlineEducation.DataAccess.Repositories;
+using OnlineEducation.Entity.Entities;
 using System.Reflection;
 using System.Text.Json.Serialization;
 
@@ -20,6 +21,8 @@ builder.Services.AddDbContext<OnlineEducationContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));
 });
+
+
 
 builder.Services.AddControllers().AddJsonOptions(x =>
    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles); // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
