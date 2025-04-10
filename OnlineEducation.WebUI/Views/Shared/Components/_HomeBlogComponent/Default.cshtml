@@ -1,0 +1,42 @@
+﻿@using OnlineEducation.WebUI.DTOs.BlogDtos
+@model List<ResultBlogDto>
+<div class="home-blog-area section-padding30">
+    <div class="container">
+        <!-- Section Tittle -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-tittle text-center mb-50">
+                    <span>Son Yazılan Bloglar</span>
+                    <h2>Bloglara Göz Atın</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            @foreach(var item in Model)
+            {
+                <div class="col-xl-4 col-lg-4 col-md-4">
+                    <div class="home-blog-single mb-30">
+                        <div class="blog-img-cap">
+                            <div class="blog-img">
+                                <img src="@item.ImageUrl" alt="">
+                                <!-- Blog date -->
+                                <div class="blog-date text-center">
+                                    <span></span>
+                                    <p>@item.BlogDate.ToShortDateString()</p>
+                                </div>
+                            </div>
+                            <div class="blog-cap">
+                                <p>@item.BlogCategory.Name</p>
+                                <h3><a href="#">@item.Title</a></h3>
+                                <a href="#" class="more-btn">Daha Fazlası İçin »</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+            
+        </div>
+    </div>
+</div>
