@@ -1,13 +1,16 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using OnlineEducation.Entity.Entities;
+using OnlineEducation.WebUI.DTOs.CourseDtos;
 using OnlineEducation.WebUI.DTOs.CourseRegisterDtos;
 using OnlineEducation.WebUI.Helpers;
 
 namespace OnlineEducation.WebUI.Areas.Student.Controllers
 {
     [Authorize(Roles = "Student")]
+    [Route("[area]/[controller]/[action]/{id?}")]
     [Area("Student")]
     public class CourseRegisterController(UserManager<AppUser> _userManager) : Controller
     {
@@ -15,9 +18,70 @@ namespace OnlineEducation.WebUI.Areas.Student.Controllers
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            var values = await _client.GetFromJsonAsync<List<ResultCourseRegisterDto>>("courseRegisters/GetMyCourses/" + user.Id);
+            var values = await _client.GetFromJsonAsync<List<ResultCourseRegisterDto>>("courseRegisters/GetMyCourses/"+user.Id);
             return View(values);
         }
+        [HttpGet]
+        public async Task<IActionResult> RegisterCourse()
+        {
+            var courseList = await _client.GetFromJsonAsync<List<ResultCourseDto>>("courses");
+
+            List<SelectListItem> courses = (from x in courseList
+                                            select new SelectListItem
+                                            {
+                                                Text = x.CourseName,
+                                                Value = x.CourseId.ToString()
+                                            }).ToList();
+            ViewBag.courses = courses;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RegisterCourse(CreateCourseRegisterDto model)
+        {
+            var courseList = await _client.GetFromJsonAsync<List<ResultCourseDto>>("courses");
+
+            List<SelectListItem> courses = (from x in courseList
+                                            select new SelectListItem
+                                            {
+                                                Text = x.CourseName,
+                                                Value = x.CourseId.ToString()
+                                            }).ToList();
+            ViewBag.courses = courses;
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            model.AppUserId = user.Id;
+           var result= await _client.PostAsJsonAsync("courseRegisters",model);
+            if (result.IsSuccessStatusCode)
+            {
+               return RedirectToAction("Index");
+
+            }
+
+                return View(model);
+
+                //var courseList = await _client.GetFromJsonAsync<List<ResultCourseDto>>("courses");
+
+                //List<SelectListItem> courses = (from x in courseList
+                //                                select new SelectListItem
+                //                                {
+                //                                    Text = x.CourseName,
+                //                                    Value = x.CourseId.ToString()
+                //                                }).ToList();
+                //ViewBag.courses = courses;
+
+
+
+
+                //var result = await _client.PostAsJsonAsync("courseRegisters", model);
+                //if (result.IsSuccessStatusCode)
+                //{
+                //    return RedirectToAction("Index");
+
+                //}
+
+                //return View(model);
+        }
+
 
     }
 }
